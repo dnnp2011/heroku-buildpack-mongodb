@@ -31,8 +31,8 @@ curl $download_url -s -o - | tar xzf - -C /tmp
 
 # Move mongodb binaries into the app directory
 mv "/tmp/${folder_name}"/* $heroku_dir/mongo
-# chmod +x $heroku_dir/mongo/bin/*
+chmod +x $heroku_dir/mongo/debian/*
 
 echo "-----> Creating runtime environment"
 mkdir -p $build_dir/.profile.d
-echo "export PATH=\"\$HOME/.heroku/mongo/bin:\$PATH\"" > $build_dir/.profile.d/mongo.sh
+echo "export PATH=\"\$HOME/.heroku/mongo/debian:\$HOME/.heroku/mongo/bin:\$HOME/.heroku/mongo/rpm:\$PATH\"" > $build_dir/.profile.d/mongo.sh
