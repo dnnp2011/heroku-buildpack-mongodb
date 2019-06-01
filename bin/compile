@@ -27,9 +27,6 @@ file_name="mongodb-${platform}-${os_id}-${mongo_version}.tgz"
 # folder_name=`echo "$file_name" | sed 's/\.tar.gz$//'`
 folder_name=`echo "$file_name" | sed 's/\.tgz$//'`
 download_url="https://fastdl.mongodb.org/linux/${file_name}"
-# download_url="http://downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-latest.tgz"
-# https://fastdl.mongodb.org/src/mongodb-src-r4.0.10.tar.gz
-# https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.0.10.tgz //New Link
 curl $download_url -s -o - | tar xzf - -C /tmp
 
 # Move mongodb binaries into the app directory
@@ -38,5 +35,5 @@ chmod +x $heroku_dir/mongo/bin/*
 
 echo "-----> Creating runtime environment"
 mkdir -p $build_dir/.profile.d
-mkdir -p $heroku_dir/mongo/data/db
-echo "export PATH=\"\$HOME/.heroku/mongo/debian:\$HOME/.heroku/mongo/bin:\$HOME/.heroku/mongo/rpm:\$PATH\"" > $build_dir/.profile.d/mongo.sh
+mkdir -p $build_dir/data/db
+echo "export PATH=\"\$HOME/.heroku/mongo/bin:\$PATH\"" > $build_dir/.profile.d/mongo.sh
