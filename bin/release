@@ -1,5 +1,8 @@
-#!/usr/bin/env bash
 
-cat <<EOF
+#!/bin/sh
+
+cat << EOF
 ---
+config_vars:
+  PATH: "/usr/bin:/usr/local/bin:/app/bin:/app/vendor/mongodb/bin"
 EOF
