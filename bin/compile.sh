@@ -21,10 +21,8 @@ mongo_version="4.0.10"
 echo "-----> Downloading and installing mongodb version ${mongo_version}..."
 [[ $STACK = "heroku-18" ]] && os_id="ubuntu1804" || os_id="ubuntu1604" || os_id="ubuntu1404"
 
-# file_name="mongodb-linux-x86_64-${os_id}-${mongo_version}.tgz"
 file_name="mongodb-src-r${mongo_version}.tar.gz"
 folder_name=`echo "$file_name" | sed 's/\.tar.gz$//'`
-# download_url="https://fastdl.mongodb.org/linux/${file_name}"
 download_url="https://fastdl.mongodb.org/src/${file_name}"
 curl $download_url -s -o - | tar xzf - -C /tmp
 
